@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#240b0d" />
+  <title>Happy Birthday — приглашение</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero" id="top">
+    <div class="hero__shade"></div>
+    <div class="hero__content">
+      <p class="eyebrow hero__eyebrow">YOU ARE INVITED TO</p>
+      <h1>Happy<br />Birthday <span class="heart">♡</span></h1>
+      <p class="hero__subtitle">Приглашаю тебя отметить<br />мой день рождения</p>
+      <div class="hero__actions">
+        <button class="button button--wine" data-rsvp="yes">Обязательно приду</button>
+        <button class="button button--outline-light" data-rsvp="no">Не смогу</button>
+      </div>
+      <p class="rsvp-note" id="rsvp-note" aria-live="polite"></p>
+    </div>
+    <a class="scroll-cue" href="#details" aria-label="Перейти к информации"><span></span></a>
+    <div class="hero__date">23 <i>—</i> 01 <i>—</i> 27</div>
+  </header>
+
+  <main>
+    <section class="section details-section" id="details">
+      <div class="section-heading">
+        <span></span><p class="eyebrow">THE DETAILS</p><span></span>
+      </div>
+      <h2>Важная информация</h2>
+      <div class="details-grid">
+        <div class="details-copy">
+          <p class="lead">Жду тебя <strong>23.01.27 в 17:00</strong></p>
+          <p>по адресу: <strong>[позже точно напишу]</strong></p>
+          <div class="map-card">
+            <img src="https://images.unsplash.com/photo-1524666041070-9b8768338b3f?auto=format&fit=crop&w=1000&q=85" alt="Карта местоположения" />
+            <span class="map-pin">✦</span>
+          </div>
+          <a class="text-link" href="https://yandex.ru/maps/" target="_blank" rel="noreferrer">Открыть в Яндекс Картах <span>↗</span></a>
+          <p class="mood-note">При себе иметь хорошее настроение <span>♡</span></p>
+        </div>
+
+        <div class="calendar-card">
+          <div class="calendar-top">
+            <span class="calendar-flower">✳</span>
+            <h3>Январь <span>2027</span></h3>
+            <span class="calendar-flower">✳</span>
+          </div>
+          <div class="calendar-grid" id="calendar">
+            <span class="weekday">Пн</span><span class="weekday">Вт</span><span class="weekday">Ср</span>
+            <span class="weekday">Чт</span><span class="weekday">Пт</span><span class="weekday">Сб</span><span class="weekday">Вс</span>
+          </div>
+          <p class="calendar-caption">Сохрани дату — буду ждать!</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section program-section" id="program">
+      <div class="section-heading">
+        <span></span><p class="eyebrow">LET'S CELEBRATE</p><span></span>
+      </div>
+      <h2>Программа</h2>
+      <div class="timeline">
+        <article class="timeline-item">
+          <time>17:00</time><span class="timeline-dot"></span>
+          <div><h3>Профессиональная съёмка</h3><p>Фотограф на нашей фотозоне и интересный интерактив.</p></div>
+        </article>
+        <article class="timeline-item">
+          <time>18:00</time><span class="timeline-dot"></span>
+          <div><h3>Основная часть</h3><p>Программа от ведущего, фуршет и танцы.</p></div>
+        </article>
+        <article class="timeline-item">
+          <time>00:00</time><span class="timeline-dot"></span>
+          <div><h3>Автопати</h3><p>Для тех, кто не захочет заканчивать вечер.</p></div>
+        </article>
+      </div>
+      <div class="camera-note">
+        <span class="camera-icon">◎</span>
+        <p>Весь вечер будет присутствовать камера <strong>Canon GX7</strong>, на которую вы сможете сделать атмосферные фото.</p>
+      </div>
+      <p class="late-note">Пожалуйста, не опаздывай — самое интересное начнётся вовремя.</p>
+    </section>
+
+    <section class="wishlist-section" id="wishlist">
+      <div class="wishlist-image" role="img" aria-label="Подарочная коробка с бордовой лентой"></div>
+      <div class="wishlist-content">
+        <p class="eyebrow">A LITTLE WISH</p>
+        <h2>Виш-лист</h2>
+        <div class="ornament">✳</div>
+        <p>Дорогой гость, буду рада любому твоему подарку, но приятно было бы получить небольшую приятную сумму в виде презента. Не откажусь и от цветов в качестве комплимента <span>♡</span></p>
+      </div>
+      <div class="wishlist-side-note">WITH LOVE · 23.01.2027</div>
+    </section>
+
+    <section class="section dress-section" id="dresscode">
+      <div class="section-heading">
+        <span></span><p class="eyebrow">DRESS TO IMPRESS</p><span></span>
+      </div>
+      <h2>Дресс-код</h2>
+      <p class="section-intro">Вдохновение для твоего праздничного образа</p>
+      <div class="dress-gallery">
+        <figure><img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=700&q=85" alt="Элегантный вечерний образ" /></figure>
+        <figure><img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=700&q=85" alt="Образ в тёмных оттенках" /></figure>
+        <figure><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=700&q=85" alt="Вечерний образ" /></figure>
+        <figure><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=700&q=85" alt="Модный образ" /></figure>
+      </div>
+      <p class="dress-thanks">Огромная просьба соблюсти дресс-код. Буду благодарна <span>🤎</span></p>
+      <p class="dress-footnote">Никакой спортивной одежды</p>
+    </section>
+
+    <section class="section survey-section" id="survey">
+      <div class="section-heading">
+        <span></span><p class="eyebrow">A FEW QUESTIONS</p><span></span>
+      </div>
+      <h2>Опрос</h2>
+      <p class="section-intro">Помоги мне подготовить для тебя идеальный вечер</p>
+
+      <form class="survey-form" id="guest-form">
+        <div class="form-block">
+          <label class="form-label" for="allergies">Есть ли аллергия на какие-то продукты?</label>
+          <textarea id="allergies" name="allergies" rows="3" placeholder="Напиши, если есть аллергия или особенности питания..."></textarea>
+        </div>
+
+        <div class="drink-columns">
+          <fieldset class="form-block">
+            <legend class="form-label">Что будете пить?</legend>
+            <p class="form-hint">Можно выбрать несколько вариантов</p>
+            <div class="option-list" id="alcohol-options">
+              <label class="check-option"><input type="checkbox" name="alcohol" value="Виски"><span class="custom-check"></span>Виски</label>
+              <label class="check-option"><input type="checkbox" name="alcohol" value="Водка"><span class="custom-check"></span>Водка</label>
+              <label class="check-option"><input type="checkbox" name="alcohol" value="Пиво"><span class="custom-check"></span>Пиво</label>
+              <label class="check-option"><input type="checkbox" name="alcohol" value="Шампанское"><span class="custom-check"></span>Шампанское</label>
+              <label class="check-option"><input type="checkbox" name="alcohol" value="Мартини"><span class="custom-check"></span>Мартини</label>
+              <label class="check-option"><input type="checkbox" name="alcohol" value="Красное вино"><span class="custom-check"></span>Красное вино</label>
+              <label class="check-option"><input type="checkbox" name="alcohol" value="Белое вино"><span class="custom-check"></span>Белое вино</label>
+              <label class="check-option"><input type="checkbox" name="alcohol" value="Я не пью" id="no-alcohol"><span class="custom-check"></span>Я не пью</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-block">
+            <legend class="form-label">Что предпочитаете из безалкогольных напитков?</legend>
+            <p class="form-hint">Отметь подходящие варианты</p>
+            <div class="option-list">
+              <label class="check-option"><input type="checkbox" name="soft" value="Сок вишнёвый"><span class="custom-check"></span>Сок вишнёвый</label>
+              <label class="check-option"><input type="checkbox" name="soft" value="Лимонад"><span class="custom-check"></span>Лимонад</label>
+              <label class="check-option"><input type="checkbox" name="soft" value="Кола"><span class="custom-check"></span>Кола</label>
+              <label class="check-option"><input type="checkbox" name="soft" value="Фанта"><span class="custom-check"></span>Фанта</label>
+              <label class="check-option"><input type="checkbox" name="soft" value="Спрайт"><span class="custom-check"></span>Спрайт</label>
+              <label class="check-option"><input type="checkbox" name="soft" value="Сок яблочный"><span class="custom-check"></span>Сок яблочный</label>
+              <label class="check-option"><input type="checkbox" name="soft" value="Сок Мультфрукт"><span class="custom-check"></span>Сок Мультфрукт</label>
+              <label class="check-option"><input type="checkbox" name="soft" value="Другое" id="other-drink"><span class="custom-check"></span>Другое</label>
+            </div>
+            <div class="other-field" id="other-field" hidden>
+              <input type="text" id="other-drink-text" name="otherDrink" placeholder="Напиши, что именно..." />
+              <small>Если выбрала «Другое», напиши мне в мессенджере, что именно.</small>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="form-bottom">
+          <p>Спасибо, что помогаешь мне подготовиться <span>♡</span></p>
+          <button class="button button--wine button--submit" type="submit">Отправить ответы <span>↗</span></button>
+          <p class="form-status" id="form-status" aria-live="polite"></p>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-rose footer-rose--left">✿</div>
+    <p class="eyebrow">23 JANUARY 2027</p>
+    <h2>Happy Birthday <span>♡</span></h2>
+    <div class="footer-rule"><span></span>♡<span></span></div>
+    <p class="footer-caption">Буду ждать тебя на празднике</p>
+    <a href="#top" class="back-top">НАВЕРХ ↑</a>
+    <div class="footer-rose footer-rose--right">✿</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
