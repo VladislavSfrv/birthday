@@ -171,75 +171,117 @@ otherDrink.addEventListener("change", () => {
 // ОТПРАВКА АНКЕТЫ
 // ========================================
 
+
+// ========================================
+// ОТПРАВКА АНКЕТЫ В TELEGRAM
+// ========================================
+
+// Вставь сюда адрес своего Cloudflare Worker
+const API_URL =
+    "https://birthday.gogolib73.workers.dev";
+
+
 const form = document.querySelector("#guest-form");
 
 const formStatus = document.querySelector("#form-status");
 
-form.addEventListener("submit", (event) => {
+const submitButton = form.querySelector(
+    'button[type="submit"]'
+);
 
-    // Отменяем стандартную отправку формы
+
+form.addEventListener("submit", async (event) => {
 
     event.preventDefault();
 
-    // Получаем данные формы
+    const formData = new FormData(form);
 
-    const data = new FormData(form);
+    // Собираем данные анкеты
+    const guestData = {
 
-    const response = {
+        guestName: formData.get("guestName"),
 
-        allergies: String(
-            data.get("allergies") || ""
-        ).trim(),
+        allergies: formData.get("allergies"),
 
-        alcohol: data.getAll("alcohol"),
+        alcohol: formData.getAll("alcohol"),
 
-        softDrinks: data.getAll("soft"),
+        softDrinks: formData.getAll("soft"),
 
-        otherDrink: String(
-            data.get("otherDrink") || ""
-        ).trim(),
+        otherDrink: formData.get("otherDrink"),
 
-        submittedAt: new Date().toISOString()
+        website: formData.get("website")
 
     };
 
 
-    // Сохраняем ответы
+    // Блокируем повторное нажатие
+    submitButton.disabled = true;
+
+    const originalButtonHTML = submitButton.innerHTML;
+
+    submitButton.textContent = "Отправляем...";
+
+    formStatus.textContent = "";
+
 
     try {
 
-        const saved = JSON.parse(
-            localStorage.getItem("birthday-guest-responses") || "[]"
-        );
+        // Отправляем запрос на backend
+        const response = await fetch(API_URL, {
 
-        saved.push(response);
+            method: "POST",
 
-        localStorage.setItem(
-            "birthday-guest-responses",
-            JSON.stringify(saved)
-        );
+            headers: {
+                "Content-Type": "application/json"
+            },
 
-        // Показываем сообщение об успехе
+            body: JSON.stringify(guestData)
 
+        });
+
+
+        const result = await response.json();
+
+        // Проверяем результат
+        if (!response.ok || !result.ok) {
+
+            throw new Error(
+                result.error || "Не удалось отправить анкету"
+            );
+
+        }
+
+
+        // Успешная отправка
         formStatus.textContent =
-            "Спасибо! Ответы сохранены в этом браузере 🤎";
+            "Спасибо! Твоя анкета успешно отправлена 🤎";
+
 
         // Очищаем форму
-
         form.reset();
 
+        // Скрываем поле "Другое"
         otherField.hidden = true;
+
 
     } catch (error) {
 
-        formStatus.textContent =
-            "Не удалось сохранить ответы. Попробуй ещё раз.";
+        console.error("Ошибка отправки:", error);
 
-        console.error(error);
+        formStatus.textContent =
+            "Не удалось отправить анкету. Попробуй ещё раз.";
+
+    } finally {
+
+        // Возвращаем кнопку в исходное состояние
+        submitButton.disabled = false;
+
+        submitButton.innerHTML = originalButtonHTML;
 
     }
 
 });
+
 
 
 // ========================================
