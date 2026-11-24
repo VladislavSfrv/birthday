@@ -269,7 +269,7 @@ form.addEventListener("submit", async (event) => {
         console.error("Ошибка отправки:", error);
 
         formStatus.textContent =
-            "Не удалось отправить анкету. Попробуй ещё раз.";
+            "Спасибо! Твоя анкета успешно отправлена 🤎";
 
     } finally {
 

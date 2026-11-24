@@ -23,13 +23,8 @@
     </video>
     <div class="hero__shade"></div>
     <div class="hero__content">
-      <p class="eyebrow hero__eyebrow">YOU ARE INVITED TO</p>
       <h1>Happy<br />Birthday <span class="heart">♡</span></h1>
       <p class="hero__subtitle">Приглашаю тебя отметить<br />мой день рождения</p>
-      <div class="hero__actions">
-        <button class="button button--wine" data-rsvp="yes">Обязательно приду</button>
-        <button class="button button--outline-light" data-rsvp="no">Не смогу</button>
-      </div>
       <p class="rsvp-note" id="rsvp-note" aria-live="polite"></p>
     </div>
     <a class="scroll-cue" href="#details" aria-label="Перейти к информации"><span></span></a>
@@ -48,14 +43,15 @@
           <p class="lead">Жду тебя <strong>23.01.27 в 17:00</strong></p>
           <p>по адресу: <strong>Бауманская улица, 56/17</strong></p>
           <div class="map-card">
-            <div style="position:relative;overflow:hidden;"><a
+            <div class="map-card__frame"><a
                 href="https://yandex.ru/maps/213/moscow/?utm_medium=mapframe&utm_source=maps"
                 style="color:#eee;font-size:12px;position:absolute;top:0px;">Москва</a><a
                 href="https://yandex.ru/maps/213/moscow/house/baumanskaya_ulitsa_56_17/Z04YcABpSEcCQFtvfXt3eXtmYQ==/?ll=37.679125%2C55.768755&utm_medium=mapframe&utm_source=maps&z=16.81"
                 style="color:#eee;font-size:12px;position:absolute;top:14px;">Бауманская улица, 56/17 —
                 Яндекс Карты</a><iframe
                 src="https://yandex.ru/map-widget/v1/?ll=37.679125%2C55.768755&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1NjcyODM4OBJC0KDQvtGB0YHQuNGPLCDQnNC-0YHQutCy0LAsINCR0LDRg9C80LDQvdGB0LrQsNGPINGD0LvQuNGG0LAsIDU2LzE3IgoNbLcWQhU1E19C&z=16.81"
-                width="560" height="230" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe>
+                title="Карта: Бауманская улица, 56/17"
+                frameborder="0" allowfullscreen="true"></iframe>
             </div>
           </div>
           <a class="text-link"
@@ -232,7 +228,6 @@
         </div>
 
         <div class="form-bottom">
-          <p>Спасибо, что помогаешь мне подготовиться <span>♡</span></p>
           <button class="button button--wine button--submit" type="submit">Отправить ответы <span>↗</span></button>
           <p class="form-status" id="form-status" aria-live="polite"></p>
         </div>
