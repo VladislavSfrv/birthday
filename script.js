@@ -317,3 +317,54 @@ try {
     // даже если localStorage недоступен.
 
 }
+
+
+// ========================================
+// ПОЯВЛЕНИЕ ЭЛЕМЕНТОВ ПРИ ПРОКРУТКЕ
+// ========================================
+
+const revealElements = document.querySelectorAll([
+    "main > section > .section-heading",
+    "main > section > h2",
+    ".details-grid",
+    ".timeline-item",
+    ".camera-note",
+    ".late-note",
+    ".wishlist-content",
+    ".dress-section > .section-intro",
+    ".dress-gallery figure",
+    ".dress-thanks",
+    ".dress-footnote",
+    ".survey-form > .form-block",
+    ".drink-columns",
+    ".form-bottom",
+    ".footer > .eyebrow",
+    ".footer > h2",
+    ".footer-rule",
+    ".footer-caption",
+    ".back-top"
+].join(", "));
+
+if (
+    "IntersectionObserver" in window &&
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.12,
+        rootMargin: "0px 0px -40px 0px"
+    });
+
+    revealElements.forEach((element) => {
+        element.classList.add("scroll-reveal");
+        revealObserver.observe(element);
+    });
+
+    document.documentElement.classList.add("reveal-ready");
+}
