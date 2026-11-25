@@ -332,7 +332,7 @@ const revealElements = document.querySelectorAll([
     ".late-note",
     ".wishlist-content",
     ".dress-section > .section-intro",
-    ".dress-gallery figure",
+    ".dress-color",
     ".dress-thanks",
     ".dress-footnote",
     ".survey-form > .form-block",
