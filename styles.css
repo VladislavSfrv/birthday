@@ -48,13 +48,13 @@ a {
 
 .hero {
   min-height: 690px;
-  height: min(94vh, 850px);
+  height: 100vh;
   position: relative;
   display: flex;
   align-items: center;
   overflow: hidden;
   color: #fff8f3;
-  background: #170b0c;
+  background: #170b0c url("./assets/bg.png") center 48% / cover no-repeat;
 }
 
 .hero__video {
@@ -247,7 +247,23 @@ h2 {
 }
 
 .details-section {
+  position: relative;
+  isolation: isolate;
   padding-top: 94px;
+}
+
+.details-section::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 45%;
+  left: calc((min(1060px, 100vw - 48px) - 100vw) / 1.5);
+  width: clamp(210px, 30vw, 360px);
+  height: clamp(320px, 42vw, 520px);
+  transform: translateY(-50%);
+  background: url("./assets/flowers.png") left center / auto 100% no-repeat;
+  mix-blend-mode: multiply;
+  pointer-events: none;
 }
 
 .details-grid {
@@ -368,6 +384,9 @@ h2 {
 .calendar-flower {
   color: #9a5260;
   font-size: 17px;
+  img{
+    max-width: 30px;
+  }
 }
 
 .calendar-grid {
@@ -482,18 +501,24 @@ h2 {
   background: #f0e3dd;
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 40px;
+  justify-content: center;
+  border-radius: 12px;
 }
 
 .camera-icon {
   color: var(--wine);
   font-size: 30px;
   line-height: 1;
+
+  img {
+    max-width: 40px;
+  }
 }
 
 .camera-note p {
   margin: 0;
-  font-size: 11px;
+  font-size: 15px;
   color: #6d5552;
 }
 
@@ -927,6 +952,13 @@ textarea::placeholder,
   transform: rotate(25deg);
 }
 
+@media (max-width: 1500px) {
+  .details-section::after {
+    top: 135%;
+    left: calc((min(1060px, 100vw - 48px) - 100vw) - 120px);
+  }
+}
+
 @media (max-width: 760px) {
   body {
     font-size: 13px;
@@ -1097,6 +1129,11 @@ textarea::placeholder,
   .footer-rose {
     font-size: 85px;
   }
+
+  .details-section::after {
+    top: 85%;
+    left: calc((min(1060px, 100vw - 48px) - 100vw) - 50px);
+  }
 }
 
 @media (max-width: 390px) {
@@ -1124,6 +1161,8 @@ textarea::placeholder,
   .calendar-top h3 {
     font-size: 25px;
   }
+
+
 }
 
 .reveal-ready .scroll-reveal {
