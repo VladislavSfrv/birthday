@@ -5,6 +5,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#240b0d" />
+  <script>
+    try {
+      if (!localStorage.getItem("birthday-intro-seen")) {
+        document.documentElement.classList.add("intro-pending");
+      }
+    } catch (error) {
+      document.documentElement.classList.add("intro-pending");
+      console.warn("Не удалось проверить состояние заставки.", error);
+    }
+  </script>
   <title>Happy Birthday — приглашение</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,11 +25,27 @@
 </head>
 
 <body>
+  <div class="intro-screen" id="intro-screen" role="dialog" aria-modal="true"
+    aria-labelledby="intro-title">
+    <div class="intro__content">
+      <p class="intro__eyebrow">YOU ARE INVITED TO</p>
+      <div class="intro__ornament" aria-hidden="true"><span></span>✦<span></span></div>
+      <h1 class="intro__title" id="intro-title">Happy<br /><span>Birthday</span></h1>
+      <p class="intro__subtitle">Приглашение на особенный вечер</p>
+      <p class="intro__date">23 <i>—</i> 01 <i>—</i> 27</p>
+      <button class="intro__button" id="intro-enter" type="button">
+        Открыть приглашение <span aria-hidden="true">↓</span>
+      </button>
+    </div>
+    <span class="intro__spark intro__spark--one" aria-hidden="true">✧</span>
+    <span class="intro__spark intro__spark--two" aria-hidden="true">✦</span>
+  </div>
+
   <header class="hero" id="top">
     <div class="hero__shade"></div>
     <div class="hero__content">
       <p class="eyebrow hero__eyebrow">YOU ARE INVITED TO</p>
-      <h1>Happy<br />Birthday <span class="heart"><img src="./assets/heart.svg" alt="heart"></span></h1>
+      <h1>Happy<br />Birthday <span class="heart white"><img src="./assets/heart.svg" alt="heart"></span></h1>
       <p class="hero__subtitle">Приглашаю тебя отметить<br />мой день рождения</p>
       <div class="hero__actions">
         <button class="button button--wine" data-rsvp="yes">Обязательно приду</button>

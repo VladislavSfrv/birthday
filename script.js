@@ -368,3 +368,55 @@ if (
 
     document.documentElement.classList.add("reveal-ready");
 }
+
+
+// ========================================
+// ПЕРВОЕ ОТКРЫТИЕ ПРИГЛАШЕНИЯ
+// ========================================
+
+const introScreen = document.querySelector("#intro-screen");
+const introEnterButton = document.querySelector("#intro-enter");
+const introPageContent = document.querySelectorAll(
+    "body > header, body > main, body > footer"
+);
+const introRoot = document.documentElement;
+
+if (introRoot.classList.contains("intro-pending")) {
+    introPageContent.forEach((element) => {
+        element.inert = true;
+    });
+
+    introEnterButton.focus({ preventScroll: true });
+
+    const closeIntro = () => {
+        if (!introRoot.classList.contains("intro-pending")) {
+            return;
+        }
+
+        try {
+            localStorage.setItem("birthday-intro-seen", "true");
+        } catch (error) {
+            console.warn("Не удалось сохранить состояние заставки.", error);
+        }
+
+        introRoot.classList.add("intro-closing");
+
+        const closeDelay = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches ? 0 : 850;
+
+        window.setTimeout(() => {
+            introRoot.classList.remove("intro-pending", "intro-closing");
+            introPageContent.forEach((element) => {
+                element.inert = false;
+            });
+        }, closeDelay);
+    };
+
+    introEnterButton.addEventListener("click", closeIntro);
+    introScreen.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+            closeIntro();
+        }
+    });
+}
