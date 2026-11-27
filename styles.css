@@ -114,7 +114,7 @@ a {
   width: 100px;
 }
 
-.heart-small img{
+.heart-small img {
   width: 20px;
 }
 
@@ -549,11 +549,8 @@ h2 {
   background: var(--wine-dark);
   color: #f9eee8;
   overflow: hidden;
-}
-
-.wishlist-image {
-  min-height: 430px;
-  background: linear-gradient(90deg, rgba(36, 11, 13, .05), rgba(36, 11, 13, .45)), url("https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=1200&q=85") center / cover;
+  background-image: url('./assets/wish.png');
+  background-position-x: 70%;
 }
 
 .wishlist-content {
